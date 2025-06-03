@@ -74,23 +74,35 @@ useEffect(() => {
   };
 
   return (
-    
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-      <ChatWindow messages={messages} />
-      <button
-  onClick={() => {
-    clearMessages();
-    setMessages([]);
-  }}
-  className="mt-4 text-sm text-red-500 underline hover:text-red-700"
->
-  Clear Chat
-</button>
+  <div className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center p-4">
+    <div className="w-full max-w-2xl h-[90vh] flex flex-col bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
 
+      {/* Optional Header */}
+      <div className="bg-indigo-600 text-white text-center py-3 font-semibold text-lg shadow">
+        💬 AI Plugin Chat
+      </div>
+
+      {/* Chat Messages */}
+      <ChatWindow messages={messages} />
+
+      {/* Input */}
       <ChatInput onSend={handleSend} />
+
+      {/* Clear Button */}
+      <div className="text-center p-2 text-xs text-red-500 hover:underline cursor-pointer">
+        <button
+          onClick={() => {
+            clearMessages();
+            setMessages([]);
+          }}
+        >
+          Clear Chat
+        </button>
+      </div>
     </div>
-    
-  );
+  </div>
+);
+
 }
 
 export default App;
